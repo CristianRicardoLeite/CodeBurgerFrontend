@@ -3,20 +3,20 @@ import styled from 'styled-components'
 export const Container = styled.div`
   width: 100vw;
   height: 100vh;
-  background-color: red;
   border: none;
   display: flex;
+  justify-content: center;
+  align-content: center;
 `
 
-export const ImageLoginContainer = styled.div`
-  width: 80%;
-  background-image: url('../../assets/Loginphotoright.png') no-repeat;
+export const ImageLoginContainer = styled.img`
+width: 80%;
 `
 
 export const UserContainerText = styled.div`
   display: flex;
   margin-right: 6rem;
-  background-color: black;
+  background-color: #E7AC7E;
   flex-direction: column;
   padding: 3rem;
   justify-content: center;
@@ -30,7 +30,7 @@ export const UserContainerText = styled.div`
 export const Button = styled.button`
   width: 11.375rem;
   height: 2.25rem;
-  background: rgb(209, 26, 15);
+  background: #772D2C;
   border-radius: 1.25rem;
   cursor: pointer;
   border: none;
@@ -47,6 +47,7 @@ export const Input = styled.input`
   height: 2.375rem;
   margin-bottom: 0.15rem;
   background: #ffffff;
+  border: ${props => props.error ? 'border: 2px solid #cc1717;' : 'none'}
   border-radius: 0.5rem;
   padding: 0.5rem;
   outline: none;
@@ -88,6 +89,9 @@ export const A = styled.a`
 `
 export const IMG = styled.img`
   margin-top: 4rem;
+  border-radius: 20rem;
+  width: 25rem;
+  height: 20rem;
 `
 export const ErrorMessage = styled.p`
   font-style: normal;
