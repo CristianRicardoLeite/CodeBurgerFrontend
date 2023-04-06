@@ -4,18 +4,20 @@ import CodeBurgerLogo from '../../assets/Codeburgerlogin.png'
 
 import { useForm } from 'react-hook-form'
 
+import { ToastContainer, toast } from 'react-toastify'
+
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
 
 import api from '../../services/api'
 
+import Button from '../../components/button'
 import {
   Container,
   ImageLoginContainer,
   UserContainerText,
   LoginText,
   Label,
-  Button,
   SignUpPhrase,
   Input,
   A,
@@ -42,11 +44,17 @@ const Login = () => {
   })
 
   const onSubmit = async clientData => {
-    const response = await api.post('sessions', {
-      email: clientData.email,
-      password: clientData.password
-    })
-    console.log(response)
+    await toast.promise(
+      api.post('sessions', {
+        email: clientData.email,
+        password: clientData.password
+      }),
+      {
+        pending: 'Aguarde...',
+        success: 'Bora que eu to com fome 👌',
+        error: 'Verifique se seus dados estão corretos 🤯'
+      }
+    )
   }
 
   return (

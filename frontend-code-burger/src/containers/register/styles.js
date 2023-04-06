@@ -9,7 +9,7 @@ export const Container = styled.div`
   align-content: center;
 `
 
-export const ImageLoginContainer = styled.img`
+export const ImageRegisterContainer = styled.img`
 width: 100%;
 `
 
@@ -18,7 +18,7 @@ export const UserContainerText = styled.div`
   width: 45%;
   background-color: #E7AC7E;
   flex-direction: column;
-  padding: 2rem;
+  padding: 3rem;
   justify-content: center;
   align-items: center;
 
@@ -39,9 +39,8 @@ export const Input = styled.input`
   outline: none;
 `
 
-export const LoginText = styled.h2`
-  margin-top: 5rem;
-  margin-bottom: 0.5rem;
+export const RegisterText = styled.h2`
+  margin-top: 4rem;
   font-style: bold;
   font-weight: 700;
   font-size: 2rem;
@@ -60,8 +59,8 @@ export const Label = styled.label`
   color: #ffffff;
 `
 
-export const SignUpPhrase = styled.p`
-  margin-top: 1.8rem;
+export const SignInPhrase = styled.p`
+  margin-top: 1rem;
   font-style: normal;
   font-weight: 400;
   font-size: 0.875rem;
@@ -74,10 +73,10 @@ export const A = styled.a`
   text-decoration: underline;
 `
 export const IMG = styled.img`
-  margin-top: 4rem;
+  margin-top: 2.5rem;
   border-radius: 20rem;
-  width: 25rem;
-  height: 20rem;
+  width: 20rem;
+  height: 15rem;
 `
 export const ErrorMessage = styled.p`
   font-style: normal;
