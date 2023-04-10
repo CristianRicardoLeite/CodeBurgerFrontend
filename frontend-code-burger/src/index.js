@@ -4,17 +4,18 @@ import ReactDOM from 'react-dom/client'
 import GlobalStyles from './styles/globalStyles'
 import { ToastContainer } from 'react-toastify'
 
-import Login from './containers/login'
-// import Register from './containers/register'
+import { Router } from './routes/routes.js'
 
-const root = ReactDOM.createRoot(document.getElementById('root'))
-root.render(
+import AppProvider from './hooks'
+
+const roote = ReactDOM.createRoot(document.getElementById('root'))
+roote.render(
+
   <>
-
-    <Login />
+    <AppProvider>
+      <Router />
+    </AppProvider>
     <ToastContainer/>
     <GlobalStyles/>
-
   </>
 )
-// <GlobalStyles />

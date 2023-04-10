@@ -13,4 +13,5 @@ export const ContainerButton = styled.button`
   line-height: 24px;
   text-align: center;
   margin: 1.5rem auto;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.4))
 `

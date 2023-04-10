@@ -3,27 +3,19 @@ import LoginPhoto from '../../assets/LogoLoginPage.jpg'
 import CodeBurgerLogo from '../../assets/Codeburgerlogin.png'
 
 import { useForm } from 'react-hook-form'
+import { Link, useNavigate } from 'react-router-dom'
 
-import { ToastContainer, toast } from 'react-toastify'
+import { useUser } from '../../hooks/UserContext'
+
+import { toast } from 'react-toastify'
 
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
 
 import api from '../../services/api'
 
-import Button from '../../components/button'
-import {
-  Container,
-  ImageLoginContainer,
-  UserContainerText,
-  LoginText,
-  Label,
-  SignUpPhrase,
-  Input,
-  A,
-  IMG,
-  ErrorMessage
-} from './styles'
+import { Button } from '../../components'
+import { Container, ImageLoginContainer, UserContainerText, LoginText, Label, SignUpPhrase, Input, A, IMG, ErrorMessage } from './styles'
 
 const schema = Yup.object().shape({
   email: Yup.string()
@@ -34,7 +26,11 @@ const schema = Yup.object().shape({
     .min(6, 'Insira no minimo 6 caracteres')
 })
 
-const Login = () => {
+export const Login = () => {
+  const { putUserData } = useUser()
+
+  const navigate = useNavigate()
+
   const {
     register,
     handleSubmit,
@@ -44,7 +40,7 @@ const Login = () => {
   })
 
   const onSubmit = async clientData => {
-    await toast.promise(
+    const { data } = await toast.promise(
       api.post('sessions', {
         email: clientData.email,
         password: clientData.password
@@ -54,7 +50,15 @@ const Login = () => {
         success: 'Bora que eu to com fome 👌',
         error: 'Verifique se seus dados estão corretos 🤯'
       }
+
     )
+
+    console.log(clientData)
+    putUserData(data)
+
+    setTimeout(() => {
+      navigate('/')
+    }, 1000)
   }
 
   return (
@@ -80,10 +84,8 @@ const Login = () => {
 
           <Button type='submit'>Entrar</Button>
         </form>
-        <SignUpPhrase>Não possui conta? <A>Cadastre-se</A></SignUpPhrase>
+        <SignUpPhrase>Não possui conta? <Link style={{ color: 'white' }} to='/cadastro'>Cadastre-se</Link></SignUpPhrase>
       </UserContainerText>
     </Container>
   )
 }
-
-export default Login

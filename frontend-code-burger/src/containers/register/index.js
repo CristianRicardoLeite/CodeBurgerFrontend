@@ -3,27 +3,17 @@ import LoginPhoto from '../../assets/LogoLoginPage.jpg'
 import CodeBurgerRegister from '../../assets/CodeburgerRegister.png'
 
 import { useForm } from 'react-hook-form'
+import { Link } from 'react-router-dom'
 
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
 
-import { ToastContainer, toast } from 'react-toastify'
+import { toast } from 'react-toastify'
 
 import api from '../../services/api'
 
-import Button from '../../components/button'
-import {
-  Container,
-  ImageRegisterContainer,
-  UserContainerText,
-  RegisterText,
-  Label,
-  SignInPhrase,
-  Input,
-  A,
-  IMG,
-  ErrorMessage
-} from './styles'
+import { Button } from '../../components'
+import { Container, ImageRegisterContainer, UserContainerText, RegisterText, Label, SignInPhrase, Input, A, IMG, ErrorMessage } from './styles'
 
 const schema = Yup.object().shape({
   name: Yup.string()
@@ -39,7 +29,7 @@ const schema = Yup.object().shape({
     .oneOf([Yup.ref('password')], 'As senhas não correspondem')
 })
 
-const Register = () => {
+export const Register = () => {
   const {
     register,
     handleSubmit,
@@ -108,10 +98,8 @@ const Register = () => {
           <Button type='submit'>Registrar</Button>
 
         </form>
-        <SignInPhrase>Já possui conta? <A>Entre</A></SignInPhrase>
+        <SignInPhrase>Já possui conta? <A><Link style={{ color: 'white' }} to='/login'>Entre</Link></A></SignInPhrase>
       </UserContainerText>
     </Container>
   )
 }
-
-export default Register
