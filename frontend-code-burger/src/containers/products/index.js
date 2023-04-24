@@ -52,16 +52,6 @@ export const Produts = () => {
 
   return (
         <Container>
-            <Header>
-                <div>
-                    <a>home</a>
-                    <a>Produtos</a>
-                </div>
-                <div>
-                    <a>carrinho</a>
-                    <a>Menu</a>
-                </div>
-            </Header>
             <IMG src={ProductsPage} alt='Fotos da pagina de produtos' />
             <CategoryMenu >
             { categories && categories.map(category => {

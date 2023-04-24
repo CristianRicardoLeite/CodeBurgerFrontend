@@ -1,16 +1,35 @@
 import React from 'react'
+import { Container, ContainerLeft, ContainerRight, ContainerText, PageLink, Line, PageLinkExit } from './styles'
+
+import CartPhoto from '../../assets/CartPhoto.svg'
+import Person from '../../assets/Person.png'
 
 export const Header = () => {
   return (
     <>
-      <div>
-        <a>home</a>
-        <a>Produtos</a>
-      </div>
-      <div>
-        <a>carrinho</a>
-        <a>Menu</a>
-      </div>
+      <Container>
+        <ContainerLeft>
+          <PageLink>
+            Home
+          </PageLink>
+          <PageLink>
+            Produtos
+          </PageLink>
+        </ContainerLeft>
+        <ContainerRight>
+          <PageLink >
+            <img src={CartPhoto} alt="carrinho"/>
+          </PageLink>
+          <Line></Line>
+          <PageLink >
+            <img src={Person} alt="carrinho"/>
+          </PageLink>
+        </ContainerRight>
+        <ContainerText>
+          <p></p>
+          <PageLinkExit>Sair</PageLinkExit>
+        </ContainerText>
+      </Container>
       </>
   )
 }
