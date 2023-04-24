@@ -1,34 +1,46 @@
 import React from 'react'
 import { Container, ContainerLeft, ContainerRight, ContainerText, PageLink, Line, PageLinkExit } from './styles'
 
-import CartPhoto from '../../assets/CartPhoto.svg'
+import { useNavigate } from 'react-router-dom'
+
+import { useUser } from '../../hooks/UserContext'
+
+import CartPhoto from '../../assets/MenuCart.png'
 import Person from '../../assets/Person.png'
 
 export const Header = () => {
+  const { logout } = useUser()
+  const navigate = useNavigate()
+
+  const logoutUser = () => {
+    logout()
+    navigate('/login')
+  }
+
   return (
     <>
       <Container>
         <ContainerLeft>
-          <PageLink>
+          <PageLink onClick={() => navigate('/')}>
             Home
           </PageLink>
-          <PageLink>
+          <PageLink onClick={() => navigate('/produtos')}>
             Produtos
           </PageLink>
         </ContainerLeft>
         <ContainerRight>
-          <PageLink >
+          <PageLink onClick={() => navigate('/carrinho')} >
             <img src={CartPhoto} alt="carrinho"/>
           </PageLink>
           <Line></Line>
           <PageLink >
             <img src={Person} alt="carrinho"/>
           </PageLink>
-        </ContainerRight>
-        <ContainerText>
-          <p></p>
-          <PageLinkExit>Sair</PageLinkExit>
+          <ContainerText>
+          <p>Olá, Cristian</p>
+          <PageLinkExit onClick={logoutUser}>Sair</PageLinkExit>
         </ContainerText>
+        </ContainerRight>
       </Container>
       </>
   )

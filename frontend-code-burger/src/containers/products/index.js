@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { Container, Header, IMG, ButtonCategories, CategoryMenu, ContainerCards, Card, InfoCards, ContainerProducts } from './styles'
+import { Container, IMG, ButtonCategories, CategoryMenu, ContainerCards, Card, InfoCards, ContainerProducts } from './styles'
 import ProductsPage from '../../assets/ProductsPage.jpg'
 
 import { useCart } from '../../hooks/CartContext'
 
-import { Button } from '../../components'
+import { Header, Button } from '../../components'
 
 import api from '../../services/api'
 import stringToMonetary from '../../utils/formatcurrency'
@@ -52,6 +52,7 @@ export const Produts = () => {
 
   return (
         <Container>
+          <Header/>
             <IMG src={ProductsPage} alt='Fotos da pagina de produtos' />
             <CategoryMenu >
             { categories && categories.map(category => {

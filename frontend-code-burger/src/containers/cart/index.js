@@ -4,9 +4,11 @@ import CartPhoto from '../../assets/CartPhoto.svg'
 
 import { useCart } from '../../hooks/CartContext'
 
-import { Button } from '../../components'
+import { Button, Header } from '../../components'
 
 import stringToMonetary from '../../utils/formatcurrency'
+import apiCodeBurger from '../../services/api'
+import { toast } from 'react-toastify'
 
 export const Cart = () => {
   const { cartProductsData, increaseProductsCart, decreaseProductsCart } = useCart()
@@ -22,8 +24,21 @@ export const Cart = () => {
     setFinalPrice((sumAllItens))
   }, [cartProductsData, deliveryTax, setFinalPrice])
 
+  const submitOrder = async () => {
+    const order = cartProductsData.map(product => {
+      return { id: product.id, quantity: product.quantity }
+    })
+
+    await toast.promise(apiCodeBurger.post('orders', { products: order }), {
+      pending: 'Realizando seu pedido...',
+      success: 'Pedido Realizado com Sucesso',
+      error: 'falha ao tentar realizar o seu pedido, tente novamente'
+    })
+  }
+
   return (
     <Container>
+      <Header/>
       <IMG src={CartPhoto} alt='Fotos da pagina de produtos' />
       <div className='Wrapper'>
       <CartContainer>
@@ -66,7 +81,7 @@ export const Cart = () => {
           <p>Total</p>
           <p>{stringToMonetary(finalPrice + deliveryTax)}</p>
         </div>
-        <Button style={{ width: '95%' }}>Finalizar Pedido</Button>
+        <Button style={{ width: '95%' }} onClick={submitOrder} >Finalizar Pedido</Button>
         </CartResume>
       </div>
     </Container >

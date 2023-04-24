@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { Link } from 'react-router-dom'
+
 export const Container = styled.div`
     height: 72px;
     background-color: #ffffff;
@@ -26,8 +28,10 @@ export const ContainerRight = styled.div`
 export const PageLink = styled.a`
     cursor: pointer;
     text-decoration: none;
+    color: ${props => (props.isActive ? '#772D2C' : '#555555')};
     font-size: 1rem;
     line-height: 19px;
+    font-weight: ${props => (props.isActive ? 'bold' : 'normal')};
 `
 
 export const Line = styled.div`
@@ -49,5 +53,15 @@ export const PageLinkExit = styled.a`
 export const ContainerText = styled.div`
     display: flex;
     align-items: center;
-    gap: 20px;
+    flex-direction: column;
+    text-align: left;
+
+    p{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    }
 `
