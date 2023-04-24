@@ -1,11 +1,9 @@
 import React from 'react'
 
-const Admin = () => {
+export const Admin = () => {
   return (
     <div>
         <h1>Admin screen</h1>
     </div>
   )
 }
-
-export default Admin

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Header, IMG } from './styles'
+import { Container, IMG } from './styles'
 import HomePhoto from '../../assets/HomePhoto.png'
 
 import { CategoryCarousel, OffersCarousel } from '../../components'

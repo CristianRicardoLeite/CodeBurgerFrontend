@@ -19,7 +19,7 @@ export const Cart = () => {
       return current.price * current.quantity + acc
     }, 0)
 
-    setFinalPrice(stringToMonetary(sumAllItens + deliveryTax))
+    setFinalPrice((sumAllItens))
   }, [cartProductsData, deliveryTax, setFinalPrice])
 
   return (
@@ -64,7 +64,7 @@ export const Cart = () => {
         </div>
         <div className='container-bottom'>
           <p>Total</p>
-          <p>{finalPrice}</p>
+          <p>{stringToMonetary(finalPrice + deliveryTax)}</p>
         </div>
         <Button style={{ width: '95%' }}>Finalizar Pedido</Button>
         </CartResume>
