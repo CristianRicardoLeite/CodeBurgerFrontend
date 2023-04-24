@@ -53,11 +53,14 @@ export const Login = () => {
 
     )
 
-    console.log(clientData)
     putUserData(data)
 
     setTimeout(() => {
-      navigate('/')
+      if (data.admin) {
+        navigate('/pedidos')
+      } else {
+        navigate('/')
+      }
     }, 1000)
   }
 

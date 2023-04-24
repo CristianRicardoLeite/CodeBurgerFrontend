@@ -1,17 +1,21 @@
 import React from 'react'
 
+import PropTypes from 'prop-types'
+
 import { Navigate, Outlet } from 'react-router-dom'
 import { Header } from '../components'
 
-function PrivateRoutes () {
+function PrivateRoutes (isAdmin) {
   const user = localStorage.getItem('codeburger:userData')
 
-  if (user === null) {
+  console.log(isAdmin)
+
+  if (!user) {
     return <Navigate to="/login"/>
   }
 
-  if (!user.admin) {
-    return <Navigate to="/"/>
+  if (!JSON.parse(user).admin) {
+    return <Navigate to="/" />
   }
 
   return (
@@ -23,3 +27,7 @@ function PrivateRoutes () {
 }
 
 export default PrivateRoutes
+
+PrivateRoutes.propTypes = {
+  isAdmin: PropTypes.bool
+}

@@ -4,7 +4,7 @@ import CartPhoto from '../../assets/CartPhoto.svg'
 
 import { useCart } from '../../hooks/CartContext'
 
-import { Button, Header } from '../../components'
+import { Button } from '../../components'
 
 import stringToMonetary from '../../utils/formatcurrency'
 import apiCodeBurger from '../../services/api'
@@ -38,7 +38,6 @@ export const Cart = () => {
 
   return (
     <Container>
-      <Header/>
       <IMG src={CartPhoto} alt='Fotos da pagina de produtos' />
       <div className='Wrapper'>
       <CartContainer>

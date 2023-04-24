@@ -9,7 +9,7 @@ import CartPhoto from '../../assets/MenuCart.png'
 import Person from '../../assets/Person.png'
 
 export const Header = () => {
-  const { logout } = useUser()
+  const { logout, userData } = useUser()
   const navigate = useNavigate()
 
   const logoutUser = () => {
@@ -37,7 +37,7 @@ export const Header = () => {
             <img src={Person} alt="carrinho"/>
           </PageLink>
           <ContainerText>
-          <p>Olá, Cristian</p>
+          <p>Olá, {userData.firstName}</p>
           <PageLinkExit onClick={logoutUser}>Sair</PageLinkExit>
         </ContainerText>
         </ContainerRight>

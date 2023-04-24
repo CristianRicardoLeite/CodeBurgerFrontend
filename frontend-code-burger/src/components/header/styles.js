@@ -46,13 +46,11 @@ export const PageLinkExit = styled.a`
     font-size: 14px;
     line-height: 16px;
     display: flex;
-    align-items: center;
     color: #9758A6;
 `
 
 export const ContainerText = styled.div`
     display: flex;
-    align-items: center;
     flex-direction: column;
     text-align: left;
 
@@ -62,6 +60,5 @@ export const ContainerText = styled.div`
     font-size: 14px;
     line-height: 16px;
     display: flex;
-    align-items: center;
     }
 `

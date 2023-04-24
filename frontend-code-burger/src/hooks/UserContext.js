@@ -10,6 +10,9 @@ export const UserProvider = ({ children }) => {
   const putUserData = async userInfo => {
     setUserdata(userInfo)
 
+    const firstName = userInfo.name.split(' ')
+    userInfo.firstName = `${firstName[0]}`
+
     await localStorage.setItem('codeburger:userData', JSON.stringify(userInfo))
   }
 
