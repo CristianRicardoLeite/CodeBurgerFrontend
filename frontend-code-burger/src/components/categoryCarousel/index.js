@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Container, ImgTitle, Img, ContainerCarousel } from './styles'
-import { Button } from '../button'
+import { Container, ImgTitle, Img, ContainerCarousel, Button } from './styles'
 
 import api from '../../services/api'
 
@@ -36,7 +35,7 @@ export const CategoryCarousel = () => {
                 categories &&
                 categories.map(category => <ContainerCarousel key={category.id}>
                   <Img src={category.url} alt='Foto da categoria' />
-                  <Button style={{ width: '100%' }}><p>{category.name}</p></Button>
+                  <Button to='/produtos' state={{ categoryId: category.id }}>{category.name}</Button>
                   </ContainerCarousel>
                 )
             }

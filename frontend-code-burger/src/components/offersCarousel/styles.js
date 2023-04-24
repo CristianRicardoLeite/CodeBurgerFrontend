@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { Link } from 'react-router-dom'
+
 export const Container = styled.div`
   border: none;
   display: flex;
@@ -51,7 +53,8 @@ export const ImgTitle = styled.img`
 `
 
 export const Img = styled.img`
-  width: 50%;
+  width: 100%;
+  height: 10rem;
   margin-bottom: 1rem;
   border-radius: 10px;
 `
@@ -65,6 +68,8 @@ justify-content: center;
 align-items: center;
 
  p{
+  justify-content:center;
+  text-align: center;
   font-style: normal;
   font-weight: 700;
   font-size: 1rem;
@@ -74,3 +79,22 @@ align-items: center;
  }
 
 `
+export const Button = styled.a`
+  width: 100%;
+  height: 2.25rem;
+  background: #772D2C;
+  margin: 0.5rem;
+  border-radius: 1.25rem;
+  cursor: pointer;
+  border: none;
+  font-style: bold;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  color: #F6F6F9;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.4))
+  `
