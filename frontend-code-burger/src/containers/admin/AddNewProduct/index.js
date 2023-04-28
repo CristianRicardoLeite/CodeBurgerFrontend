@@ -1,6 +1,5 @@
 import React from 'react'
 
-import { Button } from '../../../components'
 import { Container, Label, Input, ButtonAdd } from './styles'
 import { ReactSelectStyle } from '../Orders/styles'
 import { useForm } from 'react-hook-form'
