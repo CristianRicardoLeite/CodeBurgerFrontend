@@ -8,8 +8,6 @@ import { Header } from '../components'
 function PrivateRoutes (isAdmin) {
   const user = localStorage.getItem('codeburger:userData')
 
-  console.log(isAdmin)
-
   if (!user) {
     return <Navigate to="/login"/>
   }

@@ -1,9 +1,12 @@
 import React from 'react'
+import Orders from './Orders'
+
+import { Container } from './styles'
 
 export const Admin = () => {
   return (
-    <div>
-        <h1>Admin screen</h1>
-    </div>
+    <Container>
+        <Orders/>
+    </Container>
   )
 }
