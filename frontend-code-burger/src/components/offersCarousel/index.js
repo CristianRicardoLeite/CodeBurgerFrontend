@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Container, ImgTitle, Img, ContainerCarousel } from './styles'
-import { Button } from '../button'
+import { Button } from '../Button'
 
 import { useNavigate } from 'react-router-dom'
 

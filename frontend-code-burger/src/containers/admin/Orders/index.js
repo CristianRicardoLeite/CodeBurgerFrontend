@@ -1,6 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react'
 
-import { Menu, LinkMenu } from './styles'
+import { Menu, LinkMenu, Container } from './styles'
 
 import apiCodeBurger from '../../../services/api'
 
@@ -15,7 +16,6 @@ import TableBody from '@mui/material/TableBody'
 import Row from './row'
 import formatDate from '../../../utils/formatDate'
 import status from './orders-status'
-import { func } from 'prop-types'
 
 const Orders = () => {
   const [orders, setOrders] = useState([])
@@ -70,7 +70,7 @@ const Orders = () => {
   }
 
   return (
-    <>
+    <Container>
       <Menu>
       { status && status.map(status => (
         <LinkMenu key={status.id} onClick={() => handleStatus(status)} isActiveStatus={activeStatus === status.id}>
@@ -96,7 +96,7 @@ const Orders = () => {
         </TableBody>
       </Table>
     </TableContainer>
-    </>
+    </Container>
   )
 }
 

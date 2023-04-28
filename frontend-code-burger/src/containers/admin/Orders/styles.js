@@ -3,6 +3,12 @@ import styled from 'styled-components'
 
 import Select from 'react-select'
 
+export const Container = styled.div`
+padding: 3rem;
+display: flex;
+flex-direction: column;
+`
+
 export const ProductsImg = styled.img`
 width: 60px;
 height: 60px;
@@ -24,7 +30,7 @@ export const Menu = styled.div`
 display: flex;
 gap: 2rem;
 justify-content: center;
-margin: 2rem 0;
+margin-bottom: 2rem;
 `
 
 export const LinkMenu = styled.a`
