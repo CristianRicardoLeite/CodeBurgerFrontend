@@ -12,8 +12,8 @@ import { toast } from 'react-toastify'
 
 import api from '../../services/api'
 
-import { Button } from '../../components'
-import { Container, ImageRegisterContainer, UserContainerText, RegisterText, Label, SignInPhrase, Input, A, IMG, ErrorMessage } from './styles'
+import { Button, ErrorMessage } from '../../components'
+import { Container, ImageRegisterContainer, UserContainerText, RegisterText, Label, SignInPhrase, Input, A, IMG } from './styles'
 
 const schema = Yup.object().shape({
   name: Yup.string()

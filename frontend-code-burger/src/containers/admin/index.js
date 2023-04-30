@@ -7,6 +7,7 @@ import { Container } from './styles'
 import AdminMenu from './AdminMenu'
 import ListProducts from './ListProducts'
 import AddNewProduct from './AddNewProduct'
+import UpdateProduct from './UpdateProduct'
 
 export const Admin = () => {
   const location = useLocation()
@@ -16,6 +17,7 @@ export const Admin = () => {
         {location.pathname === '/pedidos' && <Orders/>}
         {location.pathname === '/lista-de-produtos' && <ListProducts/>}
         {location.pathname === '/adicionar-produtos' && <AddNewProduct/>}
+        {location.pathname === '/editar-produtos' && <UpdateProduct/>}
     </Container>
   )
 }

@@ -78,11 +78,3 @@ export const IMG = styled.img`
   width: 20rem;
   height: 15rem;
 `
-export const ErrorMessage = styled.p`
-  font-style: normal;
-  font-weight: 400;
-  font-size: 0.875rem;
-  line-height: 1rem;
-  padding-left: 1rem;
-  color: #cc1717;
-`

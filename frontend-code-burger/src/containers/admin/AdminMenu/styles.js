@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { Link } from 'react-router-dom'
+
 export const Container = styled.div`
 display: flex;
 flex-direction: column;
@@ -26,7 +28,7 @@ border-bottom: 2px solid #E9ECEF ;
 border-top: 2px solid #E9ECEF ;
 `
 
-export const AdminLink = styled.a`
+export const AdminLink = styled(Link)`
 display: flex;
 padding: 0.8rem;
 margin: 1rem 0;

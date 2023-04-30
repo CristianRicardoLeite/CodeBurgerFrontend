@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { useUser } from '../../hooks/UserContext'
 
-import CartPhoto from '../../assets/MenuCart.png'
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import Person from '../../assets/Person.png'
 
 export const Header = () => {
@@ -30,7 +30,7 @@ export const Header = () => {
         </ContainerLeft>
         <ContainerRight>
           <PageLink onClick={() => navigate('/carrinho')} >
-            <img src={CartPhoto} alt="carrinho"/>
+            <ShoppingCartIcon style={{ color: '#fffff' }} alt="carrinho"/>
           </PageLink>
           <Line></Line>
           <PageLink >

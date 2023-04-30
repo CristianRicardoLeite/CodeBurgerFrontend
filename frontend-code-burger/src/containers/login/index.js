@@ -14,8 +14,8 @@ import * as Yup from 'yup'
 
 import api from '../../services/api'
 
-import { Button } from '../../components'
-import { Container, ImageLoginContainer, UserContainerText, LoginText, Label, SignUpPhrase, Input, A, IMG, ErrorMessage } from './styles'
+import { Button, ErrorMessage } from '../../components'
+import { Container, ImageLoginContainer, UserContainerText, LoginText, Label, SignUpPhrase, Input, A, IMG } from './styles'
 
 const schema = Yup.object().shape({
   email: Yup.string()

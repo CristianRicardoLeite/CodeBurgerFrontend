@@ -17,7 +17,9 @@ export const Router = () => {
           <Route path="/pedidos" element={<Admin />} />
           <Route path="/lista-de-produtos" element={<Admin />} />
           <Route path="/adicionar-produtos" element={<Admin />} />
+          <Route path="/editar-produtos" element={<Admin />} />
           <Route path="/adicionar-categorias" element={<Admin />} />
+          <Route path="/editar-categorias" element={<Admin />} />
         </Route>
       </Routes>
     </BrowserRouter>

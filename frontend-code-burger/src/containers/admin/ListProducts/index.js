@@ -12,12 +12,16 @@ import Switch from '@mui/material/Switch'
 
 import apiCodeBurger from '../../../services/api'
 
+import { useNavigate } from 'react-router-dom'
+
 import { Container, EditIcons } from './styles'
 import stringToMonetary from '../../../utils/formatcurrency'
 
 const ListProducts = () => {
   const [products, setProducts] = useState([])
   const [offer, setOffer] = useState()
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     async function loadProducts () {
@@ -69,7 +73,7 @@ const ListProducts = () => {
                   control={<Switch onChange={handleChangeOffer} checked={product.offer} />}/>
                 </TableCell>
               <TableCell ><img src={product.url} style={{ width: '3rem', height: '3rem' }}/></TableCell>
-              <TableCell align='center'><EditIcons/></TableCell>
+              <TableCell align='center'><EditIcons onClick={() => navigate('/editar-produtos', { product })} /></TableCell>
             </TableRow>
           ))}
         </TableBody>

@@ -11,7 +11,7 @@ import { toast } from 'react-toastify'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
 import { ErrorMessage } from '../../../components'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 const schema = Yup.object().shape({
   name: Yup.string()
@@ -32,11 +32,14 @@ const schema = Yup.object().shape({
     })
 })
 
-const AddNewProduct = () => {
+const UpdateProduct = () => {
   const [fileName, setFileName] = useState()
   const [categories, setCategories] = useState([])
 
   const navigate = useNavigate()
+  const location = useLocation()
+
+  console.log(location)
 
   const {
     control,
@@ -129,4 +132,4 @@ const AddNewProduct = () => {
   )
 }
 
-export default AddNewProduct
+export default UpdateProduct
