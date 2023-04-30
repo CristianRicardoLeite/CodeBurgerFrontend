@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
+import { Link, useNavigate } from 'react-router-dom'
+
 import Table from '@mui/material/Table'
 import TableBody from '@mui/material/TableBody'
 import TableCell from '@mui/material/TableCell'
@@ -11,8 +13,6 @@ import FormControlLabel from '@mui/material/FormControlLabel'
 import Switch from '@mui/material/Switch'
 
 import apiCodeBurger from '../../../services/api'
-
-import { useNavigate } from 'react-router-dom'
 
 import { Container, EditIcons } from './styles'
 import stringToMonetary from '../../../utils/formatcurrency'
@@ -73,7 +73,7 @@ const ListProducts = () => {
                   control={<Switch onChange={handleChangeOffer} checked={product.offer} />}/>
                 </TableCell>
               <TableCell ><img src={product.url} style={{ width: '3rem', height: '3rem' }}/></TableCell>
-              <TableCell align='center'><EditIcons onClick={() => navigate('/editar-produtos', { product })} /></TableCell>
+              <TableCell align='center'><Link to={{ pathname: '/editar-produtos', state: { product } }}><EditIcons/></Link></TableCell>
             </TableRow>
           ))}
         </TableBody>
