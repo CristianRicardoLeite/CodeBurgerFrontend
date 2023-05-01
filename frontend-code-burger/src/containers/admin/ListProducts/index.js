@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import Table from '@mui/material/Table'
 import TableBody from '@mui/material/TableBody'
@@ -20,8 +20,6 @@ import stringToMonetary from '../../../utils/formatcurrency'
 const ListProducts = () => {
   const [products, setProducts] = useState([])
   const [offer, setOffer] = useState()
-
-  const navigate = useNavigate()
 
   useEffect(() => {
     async function loadProducts () {
@@ -73,7 +71,7 @@ const ListProducts = () => {
                   control={<Switch onChange={handleChangeOffer} checked={product.offer} />}/>
                 </TableCell>
               <TableCell ><img src={product.url} style={{ width: '3rem', height: '3rem' }}/></TableCell>
-              <TableCell align='center'><Link to={{ pathname: '/editar-produtos', state: { product } }}><EditIcons/></Link></TableCell>
+              <TableCell align='center'><Link to="/editar-produtos" state={ product }><EditIcons/></Link></TableCell>
             </TableRow>
           ))}
         </TableBody>

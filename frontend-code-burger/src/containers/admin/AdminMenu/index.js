@@ -24,19 +24,19 @@ const AdminMenu = () => {
         </AdminLink>
         <AdminLink to='/lista-de-produtos'>
           <ShoppingCartIcon style={{ color: '#fffff' }}/>
-          <p>Produtos</p>
+          Produtos
         </AdminLink >
         <AdminLink to='/adicionar-produtos'>
           <AddShoppingCartIcon/>
-          <p>Adicionar Produtos</p>
+          Adicionar Produtos
         </AdminLink>
         <AdminLink to='/adicionar-categorias'>
           <PlaylistAddCheckIcon style={{ color: '#fffff' }}/>
-          <p>Categorias</p>
+          Categorias
         </AdminLink>
         <AdminLink to='/alterar-categorias'>
           <PlaylistAddIcon style={{ color: '#fffff' }}/>
-          <p>Adicionar Categoria</p>
+          Adicionar Categoria
         </AdminLink>
       </ContainerMenu>
       <ContainerBottom>

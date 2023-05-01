@@ -14,16 +14,10 @@ import { ErrorMessage } from '../../../components'
 import { useNavigate, useLocation } from 'react-router-dom'
 
 const schema = Yup.object().shape({
-  name: Yup.string()
-    .required('Este campo é obrigatório'),
-  price: Yup.string()
-    .required('Este campo é obrigatório'),
-  category: Yup.object()
-    .required('Este campo é obrigatório'),
+  name: Yup.string(),
+  price: Yup.string(),
+  category: Yup.object(),
   file: Yup.mixed()
-    .test('required', 'Este campo é obrigatório', value => {
-      return value?.length > 0
-    })
     .test('fileSize', 'Carregue um Arquivo menor de 2mb', value => {
       return value[0]?.size <= 2000000
     })
@@ -37,9 +31,7 @@ const UpdateProduct = () => {
   const [categories, setCategories] = useState([])
 
   const navigate = useNavigate()
-  const location = useLocation()
-
-  console.log(location)
+  const { state: { product } } = useLocation()
 
   const {
     control,
@@ -58,11 +50,9 @@ const UpdateProduct = () => {
     productDataFormData.append('file', data.file[0])
     productDataFormData.append('category_id', data.category.id)
 
-    console.log(productDataFormData)
-
-    await toast.promise(apiCodeBurger.post('/products', productDataFormData), {
+    await toast.promise(apiCodeBurger.put(`/products:${product.id}`, productDataFormData), {
       pending: 'Aguarde...',
-      success: 'Produto Adicionado 👌',
+      success: 'Produto Alterado 👌',
       error: 'Verifique se seus dados estão corretos 🤯'
     }
     )
@@ -86,12 +76,12 @@ const UpdateProduct = () => {
       <form noValidate onSubmit={handleSubmit(onSubmit)}>
         <div>
           <Label>Nome</Label>
-          <Input type='text' {...register('name')}></Input>
+          <Input type='text' {...register('name')} defaultValue={product.name}></Input>
         <ErrorMessage>{errors.name?.message}</ErrorMessage>
         </div>
         <div>
         <Label>Preço</Label>
-        <Input type='number' {...register('price')}/>
+        <Input type='number' {...register('price')} defaultValue={product.price}/>
         <ErrorMessage>{errors.price?.message}</ErrorMessage>
         </div>
         <div>
@@ -112,7 +102,7 @@ const UpdateProduct = () => {
           <ErrorMessage>{errors.file?.message}</ErrorMessage>
         </div>
         <div>
-          <Controller name='category' control={control} render={({ field }) => {
+          <Controller name='category' control={control} defaultValue={product.category} render={({ field }) => {
             return (
               <ReactSelectStyle
               {...field}
@@ -120,6 +110,7 @@ const UpdateProduct = () => {
               getOptionLabel={ cat => cat.name}
               getOptionValue={cat => cat.id}
               placeholder='Escolha a Categoria'
+              defaultValue={product.category}
               />
             )
           }}>
