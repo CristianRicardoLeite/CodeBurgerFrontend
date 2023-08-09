@@ -30,18 +30,18 @@ const AdminMenu = () => {
           <AddShoppingCartIcon/>
           Adicionar Produtos
         </AdminLink>
-        <AdminLink to='/adicionar-categorias'>
+        <AdminLink to='/lista-de-categorias'>
           <PlaylistAddCheckIcon style={{ color: '#fffff' }}/>
           Categorias
         </AdminLink>
-        <AdminLink to='/alterar-categorias'>
+        <AdminLink to='/adicionar-categorias'>
           <PlaylistAddIcon style={{ color: '#fffff' }}/>
           Adicionar Categoria
         </AdminLink>
       </ContainerMenu>
       <ContainerBottom>
         <LogoutIcon />
-        <AdminLink to='/pedidos' onClick={logout}>Sair</AdminLink>
+        <AdminLink to='/login' onClick={logout}>Sair</AdminLink>
       </ContainerBottom>
     </Container>
   )
