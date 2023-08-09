@@ -55,6 +55,14 @@ export const Register = () => {
         toast.success('Cadastro realizado com sucesso')
 
         putUserData(clientData)
+
+        setTimeout(() => {
+          if (clientData.admin) {
+            navigate('/pedidos')
+          } else {
+            navigate('/')
+          }
+        }, 1000)
       } else if (status === 409) {
         toast.error('E-mail já cadastrado!')
       } else {
@@ -63,14 +71,6 @@ export const Register = () => {
     } catch (error) {
       toast.error('Falha no sistema, Tente novamente')
     }
-
-    setTimeout(() => {
-      if (clientData.admin) {
-        navigate('/pedidos')
-      } else {
-        navigate('/')
-      }
-    }, 1000)
   }
 
   return (
