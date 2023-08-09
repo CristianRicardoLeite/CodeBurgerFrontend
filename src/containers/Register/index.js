@@ -49,78 +49,79 @@ export const Register = () => {
         }
       }, 1000)
     }
-
-    const navigate = useNavigate()
-    const {
-      register,
-      handleSubmit,
-      formState: { errors }
-    } = useForm({
-      resolver: yupResolver(schema)
-    })
-
-    const onSubmit = async clientData => {
-      try {
-        const { status } = await api.post(
-          'users',
-          {
-            name: clientData.name,
-            email: clientData.email,
-            password: clientData.password
-          }, { validateStatus: () => true })
-
-        if (status === 201 || status === 200) {
-          validateUser(clientData)
-        } else if (status === 409) {
-          toast.error('E-mail já cadastrado!')
-        } else {
-          throw new Error()
-        }
-      } catch (error) {
-        toast.error('Falha no sistema, Tente novamente')
-      }
-    }
-
-    return (
-      <Container>
-        <ImageRegisterContainer src={CodeBurgerRegister} />
-        <UserContainerText>
-          <IMG src={LoginPhoto} alt="CodeBurguer logo" />
-          <RegisterText>Cadastro</RegisterText>
-          <form noValidate onSubmit={handleSubmit(onSubmit)}>
-            <Label>Nome</Label>
-            <Input type='text'
-              {...register('name')}
-              error={errors.name?.message}
-            ></Input>
-            <ErrorMessage>{errors.name?.message}</ErrorMessage>
-
-            <Label>Email</Label>
-            <Input type='email'
-              {...register('email')}
-              error={errors.email?.message}
-            ></Input>
-            <ErrorMessage>{errors.password?.message}</ErrorMessage>
-
-            <Label>Senha</Label>
-            <Input type='password'
-              {...register('password')}
-              error={errors.password?.message}
-            ></Input>
-            <ErrorMessage>{errors.password?.message}</ErrorMessage>
-
-            <Label>Confirmar Senha</Label>
-            <Input type='password'
-              {...register('confirmPassword')}
-              error={errors.confirmPassword?.message}
-            ></Input>
-            <ErrorMessage>{errors.confirmPassword?.message}</ErrorMessage>
-
-            <Button type='submit'>Registrar</Button>
-
-          </form>
-          <SignInPhrase>Já possui conta? <A><Link style={{ color: 'white' }} to='/login'>Entre</Link></A></SignInPhrase>
-        </UserContainerText>
-      </Container>
-    )
   }
+
+  const navigate = useNavigate()
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm({
+    resolver: yupResolver(schema)
+  })
+
+  const onSubmit = async clientData => {
+    try {
+      const { status } = await api.post(
+        'users',
+        {
+          name: clientData.name,
+          email: clientData.email,
+          password: clientData.password
+        }, { validateStatus: () => true })
+
+      if (status === 201 || status === 200) {
+        validateUser(clientData)
+      } else if (status === 409) {
+        toast.error('E-mail já cadastrado!')
+      } else {
+        throw new Error()
+      }
+    } catch (error) {
+      toast.error('Falha no sistema, Tente novamente')
+    }
+  }
+
+  return (
+    <Container>
+      <ImageRegisterContainer src={CodeBurgerRegister} />
+      <UserContainerText>
+        <IMG src={LoginPhoto} alt="CodeBurguer logo" />
+        <RegisterText>Cadastro</RegisterText>
+        <form noValidate onSubmit={handleSubmit(onSubmit)}>
+          <Label>Nome</Label>
+          <Input type='text'
+            {...register('name')}
+            error={errors.name?.message}
+          ></Input>
+          <ErrorMessage>{errors.name?.message}</ErrorMessage>
+
+          <Label>Email</Label>
+          <Input type='email'
+            {...register('email')}
+            error={errors.email?.message}
+          ></Input>
+          <ErrorMessage>{errors.password?.message}</ErrorMessage>
+
+          <Label>Senha</Label>
+          <Input type='password'
+            {...register('password')}
+            error={errors.password?.message}
+          ></Input>
+          <ErrorMessage>{errors.password?.message}</ErrorMessage>
+
+          <Label>Confirmar Senha</Label>
+          <Input type='password'
+            {...register('confirmPassword')}
+            error={errors.confirmPassword?.message}
+          ></Input>
+          <ErrorMessage>{errors.confirmPassword?.message}</ErrorMessage>
+
+          <Button type='submit'>Registrar</Button>
+
+        </form>
+        <SignInPhrase>Já possui conta? <A><Link style={{ color: 'white' }} to='/login'>Entre</Link></A></SignInPhrase>
+      </UserContainerText>
+    </Container>
+  )
+}
