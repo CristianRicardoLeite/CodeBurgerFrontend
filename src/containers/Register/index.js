@@ -52,9 +52,18 @@ export const Register = () => {
         }, { validateStatus: () => true })
 
       if (status === 201 || status === 200) {
-        toast.success('Cadastro realizado com sucesso')
+        const { data } = await toast.promise(
+          api.post('sessions', {
+            email: clientData.email,
+            password: clientData.password
+          }),
+          {
+            pending: 'Aguarde...',
+            success: 'Bora que eu to com fome 👌',
+            error: 'Verifique se seus dados estão corretos 🤯'
+          })
 
-        putUserData(clientData)
+        putUserData(data)
 
         setTimeout(() => {
           if (clientData.admin) {
