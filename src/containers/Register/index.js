@@ -3,7 +3,7 @@ import LoginPhoto from '../../assets/LogoLoginPage.jpg'
 import CodeBurgerRegister from '../../assets/CodeburgerRegister.png'
 
 import { useForm } from 'react-hook-form'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
@@ -30,6 +30,7 @@ const schema = Yup.object().shape({
 })
 
 export const Register = () => {
+  const navigate = useNavigate()
   const {
     register,
     handleSubmit,
@@ -58,6 +59,14 @@ export const Register = () => {
     } catch (error) {
       toast.error('Falha no sistema, Tente novamente')
     }
+
+    setTimeout(() => {
+      if (clientData.admin) {
+        navigate('/pedidos')
+      } else {
+        navigate('/')
+      }
+    }, 1000)
   }
 
   return (
