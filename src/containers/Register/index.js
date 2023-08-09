@@ -3,6 +3,7 @@ import LoginPhoto from '../../assets/LogoLoginPage.jpg'
 import CodeBurgerRegister from '../../assets/CodeburgerRegister.png'
 
 import { useForm } from 'react-hook-form'
+import { useUser } from '../../hooks/UserContext'
 import { Link, useNavigate } from 'react-router-dom'
 
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -30,6 +31,7 @@ const schema = Yup.object().shape({
 })
 
 export const Register = () => {
+  const { putUserData } = useUser()
   const navigate = useNavigate()
   const {
     register,
@@ -51,6 +53,8 @@ export const Register = () => {
 
       if (status === 201 || status === 200) {
         toast.success('Cadastro realizado com sucesso')
+
+        putUserData(clientData)
       } else if (status === 409) {
         toast.error('E-mail já cadastrado!')
       } else {
