@@ -57,6 +57,8 @@ export const Register = () => {
           password: clientData.password
         })
 
+        console.log(data)
+
         putUserData(data)
 
         setTimeout(() => {
