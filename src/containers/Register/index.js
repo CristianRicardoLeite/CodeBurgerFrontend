@@ -32,6 +32,7 @@ const schema = Yup.object().shape({
 
 export const Register = () => {
   const { putUserData } = useUser()
+  const navigate = useNavigate()
 
   const validateUser = async (clientData) => {
     const { data } = await api.post('sessions', {
@@ -40,18 +41,18 @@ export const Register = () => {
     })
 
     putUserData(data)
-    if (data) {
+    if (clientData.email && clientData.password) {
       setTimeout(() => {
         if (data.admin) {
           navigate('/pedidos')
         } else {
           navigate('/')
         }
-      }, 1000)
+      }, 500)
     }
   }
 
-  const navigate = useNavigate()
+
   const {
     register,
     handleSubmit,
