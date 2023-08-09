@@ -40,6 +40,8 @@ export const Register = () => {
       password: clientData.password
     })
 
+    console.log(data)
+
     putUserData(data)
     if (clientData.email && clientData.password) {
       setTimeout(() => {
@@ -51,7 +53,6 @@ export const Register = () => {
       }, 500)
     }
   }
-
 
   const {
     register,
